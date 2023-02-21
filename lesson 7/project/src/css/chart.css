@@ -1,0 +1,49 @@
+.chart_container{
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+}
+
+.chart_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart_item * {
+    transition: 0.3s ease all;
+}
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #BAA5ED;
+
+    width: 15px;
+    height: 139px;
+
+    border: 1px solid #000000;
+    border-radius: 50px;
+}
+
+.fill {
+    background-color: #3D15A9;
+    width: 100%;
+}
+
+.extra_info {
+    display: none;
+    font-size: 12px;
+}
+
+.chart_item:hover .extra_info, .chart_item:focus-within .extra_info{
+    display: block;
+    color: red;
+}
