@@ -1,0 +1,27 @@
+.cart, .cart-details, .cart-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart{
+    box-sizing: border-box;
+
+    justify-content: space-between;
+    height: 100px;
+}
+
+.cart-info{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    width: 180px;
+}
+
+.cart-details{
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
