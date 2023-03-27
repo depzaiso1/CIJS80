@@ -1,9 +1,10 @@
 import { WeatherDataContext } from "./WeatherDataContext";
 import { useContext, useState, useEffect } from "react";
+import "../css/main.css";
+import { WeatherInfo } from "./WeatherInfo";
 
 export const Main = ({ searchedValue }) => {
-  const { setSearchedValue, weatherData, setWeatherData } =
-    useContext(WeatherDataContext);
+  const { weatherData, setWeatherData } = useContext(WeatherDataContext);
   const [isLoading, setIsLoading] = useState(false);
 
   const apiKey =
@@ -31,15 +32,16 @@ export const Main = ({ searchedValue }) => {
   }, [searchedValue]);
 
   return (
-    <div>
+    <div className="detail">
       {isLoading && <p>Loading ...</p>}
       {!isLoading && weatherData.weather.length > 0 && (
+        <WeatherInfo weatherData={weatherData} />
+      )}
+      {!isLoading && weatherData.weather.length == 0 && (
         <div>
-          <h2>{weatherData.name}</h2>
-          <p>{weatherData.weather[0].description}</p>
+          <div style={{ fontWeight: "bold" }}>NOT FOUND</div>
         </div>
       )}
-      {!isLoading && weatherData.weather.length == 0 && <div>NOT FOUND</div>}
     </div>
   );
 };

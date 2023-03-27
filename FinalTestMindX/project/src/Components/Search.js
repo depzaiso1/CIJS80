@@ -1,13 +1,14 @@
 import { useContext, useRef, useState } from "react";
 import { WeatherDataContext } from "./WeatherDataContext";
 import "../css/search.css";
+
 export const Search = ({ setIsSearching }) => {
   const { setSearchedValue } = useContext(WeatherDataContext);
   const searchedRef = useRef("");
   const [message, setMessage] = useState("");
 
   const handleChange = (event) => {
-    setMessage(event.target.value);
+    setMessage(String(event.target.value).toUpperCase());
   };
 
   const handleClicked = (event) => {
@@ -28,18 +29,21 @@ export const Search = ({ setIsSearching }) => {
   return (
     <div className="search">
       <input
+        style={{ textTransform: "uppercase" }}
         className="search--input"
         type="text"
         placeholder="ENTER YOUR LOCATION"
         onChange={handleChange}
         ref={searchedRef}
       ></input>
-      <img
-        src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png"
-        alt="searchIcon"
-        onClick={handleClicked}
-        style={{ width: "1%" }}
-      />
+      <div>
+        <img
+          src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png"
+          alt="searchIcon"
+          onClick={handleClicked}
+          className="search--icon"
+        />
+      </div>
     </div>
   );
 };

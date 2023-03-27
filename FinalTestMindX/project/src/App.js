@@ -3,6 +3,7 @@ import { Search } from "./Components/Search";
 import { Main } from "./Components/Main";
 import { WeatherDataContext } from "./Components/WeatherDataContext";
 import { useContext, useState } from "react";
+import "./App.css";
 
 function App() {
   const [isSearching, setIsSearching] = useState(true);
@@ -11,7 +12,7 @@ function App() {
   console.log(isSearching);
 
   return (
-    <div>
+    <div className="container">
       <Search setIsSearching={setIsSearching} />
       {!isSearching && <Main searchedValue={searchedValue} />}
     </div>

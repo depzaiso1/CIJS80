@@ -1,3 +1,21 @@
+.search {
+    width: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
 .search--input{
     border: none;
 }
+
+.search--icon{
+    width: 12px;
+    height: 12px;
+}
+
+
