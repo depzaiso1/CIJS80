@@ -1,6 +1,7 @@
 import { WeatherDataContext } from "./WeatherDataContext";
 import { useContext, useState, useEffect } from "react";
 import "../css/main.css";
+import "../css/WeatherInfo.css";
 import { WeatherInfo } from "./WeatherInfo";
 
 export const Main = ({ searchedValue }) => {
@@ -38,7 +39,12 @@ export const Main = ({ searchedValue }) => {
         <WeatherInfo weatherData={weatherData} />
       )}
       {!isLoading && weatherData.weather.length == 0 && (
-        <div>
+        <div className="weatherInfo">
+          <img
+            src="https://www.pngitem.com/pimgs/m/255-2550411_404-error-images-free-png-transparent-png.png"
+            alt="404 icon"
+            style={{ width: "100%", height: "100%" }}
+          />
           <div style={{ fontWeight: "bold" }}>NOT FOUND</div>
         </div>
       )}
